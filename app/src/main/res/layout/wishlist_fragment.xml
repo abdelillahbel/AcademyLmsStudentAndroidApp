@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/myWishlistView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            app:SpinKit_Color="@color/textColorGrey"
+            android:visibility="gone"
+            android:elevation="200dp"
+            style="@style/SpinKitView.Circle"/>
+
+        <!--This textview and the recycler view is responsible for top course section-->
+        <TextView
+            android:id="@+id/myCoursesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Wishlist"
+            android:layout_below="@+id/toolbar"
+            style="@style/headerTitleLabel" />
+        <RelativeLayout
+            android:id="@+id/emptyContentArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/emptyContent"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/ic_empty_content"/>
+            <TextView
+                android:id="@+id/emptyContentTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Result Found"
+                android:layout_below="@+id/emptyContent"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+        <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/myCoursesGridLayout"
+            android:layout_below="@id/myCoursesLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:verticalScrollbarPosition="right"
+            android:scrollbars="vertical"
+            android:overScrollMode="never"
+            android:nestedScrollingEnabled="true">
+        </GridView>
+    </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <include layout="@layout/signin_placeholder" />
+</RelativeLayout>
